@@ -1,8 +1,20 @@
-<div class="pragmatic_header">
+<div class="pragmatic_header" style="text-align:center;">
     <div>
-        <h1 class="pragmatic_logo">Busan Youth Center</h1>
+        <a href="{% url 'core:home' %}">
+            <h3>부산청년센터 Archives</h3>
+        </a>
+        
     </div>
     <div class="pragmatic_header_navbar">
+        <a href="{% url 'core:home' %}" class="pragmatic_header_nav">
+            <span>Home</span>
+        </a>
+        <a href="{% url 'blogs:list' %}" class="pragmatic_header_nav">
+            <span>News</span>
+        </a>
+        <a href="{% url 'articles:list' %}" class="pragmatic_header_nav">
+            <span>Ariticles</span>
+        </a>
         <a href="{% url 'blogs:list' %}" class="pragmatic_header_nav">
             <span>Posts</span>
         </a>
@@ -12,20 +24,20 @@
         <a href="#" class="pragmatic_header_nav">
             <span>Subscription</span>
         </a>
-        <!-- {% if not user.is_authenticated %}
+        {% if not user.is_authenticated %}
         <a href="{% url 'users:login' %}?next={{ request.path }}" class="prgmatic_header_nav">
-            <span>login</span>
+            <span>Login</span>
         </a>
-        <a href="#" class="pragmatic_header_nav">
-            <span>SignUp</span>
+        <a href="{% url 'users:create' %}" class="pragmatic_header_nav">
+            <span>Sign Up</span>
         </a>
         {% else %}
         <a href="{% url 'users:detail' pk=user.pk %}" class="pragmatic_header_nav">
             <span>MyPage</span>
         </a>
         <a href="{% url 'users:logout' %}?next={{ request.path }}" class="prgmatic_header_nav">
-            <span>logout</span>
+            <span>Logout</span>
         </a>
-        {% endif %} -->
+        {% endif %}
     </div>
 </div>

@@ -2,39 +2,69 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BS Youth Center</title>
+    <title>Busan Youth Support Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="BS YouthCenter(부산청년센터)" />
+		<meta name="keywords" content="부산광역시, 부산경제진흥원, 청년, 정책참여, 활동, 교류, 일자리, 거점센터" />
+		<meta name="author" content="JH Choi" />
+    <!-- user-scalable 을 사용하지 않는 디바이스를 위해, maximun-scale/minimum-scale 설정을 하는 것입니다-->
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!--  BOOTSTRAP LINK  -->
+    <!-- Open Graph (Facebook, Linkedin) -->
+		<!-- https://ourcodeworld.com/public-media/articles/articleocw-56d1a6901b773.png -->
+		<meta propery="og:type" content="website" />
+		<!-- https://ogp.me/#types -->
+		<meta property="og:title" content="부산청년센터 아카이빙 교류 웹사이트" />
+		<meta property="og:description" content="부산경제진흥원 구성원이 만들어가는 청년을 위한 부산청년센터 웹사이트입니다." />
+		<!-- <meta property="og:image" content="img/fun-coding-mark.png" /> -->
+		<!-- <meta property="og:url" content="https://www.fun-coding.org" /> -->
+		<meta property="og:site_name" content="부산청년센터" />
+
+		<!-- twitter card (Twitter) -->
+		<!-- https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/twitter-cards-implementation-with-websites/Images/summary_card_tweet.png -->
+		<meta name="twitter:card" content="summary" />
+		<!-- card 종류: summary, photo, player -->
+		<meta name="twitter:title" content="부산청년센터 아카이빙 교류 웹사이트" />
+		<meta name="twitter:description" content="부산청년센터 구성원이 만들어가는 청년을 위한 부산청년센터 웹사이트입니다." />
+		<!-- <meta name="twitter:image" content="img/fun-coding-mark.png" /> -->
+		<!-- <meta name="twitter:url" content="https://www.fun-coding.org" /> -->
+		<meta name="twitter:creator" content="JH Choi" />
+
+    <!-- 일반적인 fabicon 설정 -->
+		<!-- <link rel="icon" href="img/fun-coding.ico" /> -->
+		<!-- 아이폰용 fabicon 설정 -->
+		<!-- <link rel="apple-touch-icon" href="img/fun-coding.ico" /> -->
+		<!-- 인터넷 익스플러용 fabicon 설정-->
+		<!-- <link rel="short icon" type="image/x-icon" href="img/fun-coding.ico" /> -->
+
+
+    <!--  BOOTSTRAP LINK (내부 부트스트랩 파일과 중복이긴 함)  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <!--  GOOGLE FONTS LINK  -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
     <!--  GOOGLE MATERIAL ICONS  -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-
     <!-- fontawesome Link -->
     <script src="https://kit.fontawesome.com/04ef2cabdf.js" crossorigin="anonymous"
       ></script>
     
     <!--  DEFAULT CSS LINK  -->
-    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
-    <!-- bootstrap.min.css 파일 링크 -->
+    <!-- bootstrap.min.css 내부파일 링크 -->
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static 'css/bootstrap.min.css' %}"/>
 
-
-    <style>
+    <!-- 폰트를 나눔스퀘어 적용할 시 활용 -->
+    <!-- <style>
         @font-face {
             font-family: 'NanumSquareR';
             src: local('NanumSquareR'),
-            url("{% static 'fonts/NanumSquareR.ttf' %}") format("opentype");
+            url("{% static 'fonts/NanumSquareR.otf' %}") format("opentype");
         }
         @font-face {
             font-family: 'NanumSquareEB';
@@ -51,6 +81,89 @@
             src: local('NanumSquareR'),
             url("{% static 'fonts/NanumSquareR.otf' %}") format("opentype");
         }
+    </style> -->
+
+
+    <style>
+        @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 900;
+            src: local('Pretendard Black'), local('Pretendard-Black'),
+                url("{% static 'fonts/Pretendard-Black.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 800;
+            src: local('Pretendard ExtraBold'), local('Pretendard-ExtraBold'),
+                url("{% static 'fonts/Pretendard-ExtraBold.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 800;
+            src: local('Pretendard ExtraBold'), local('Pretendard-ExtraBold'),
+                url("{% static 'fonts/Pretendard-ExtraBold.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Pretendard Bold'), local('Pretendard-Bold'),
+                url("{% static 'fonts/Pretendard-Bold.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 600;
+            src: local('Pretendard SemiBold'), local('Pretendard-SemiBold'),
+                url("{% static 'fonts/Pretendard-SemiBold.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Pretendard Medium'), local('Pretendard-Medium'),
+                url("{% static 'fonts/Pretendard-Medium.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Pretendard Regular'), local('Pretendard-Regular'),
+                url("{% static 'fonts/Pretendard-Regular.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Pretendard Light'), local('Pretendard-Light'),
+                url("{% static 'fonts/Pretendard-Light.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 200;
+            src: local('Pretendard ExtraLight'), local('Pretendard-ExtraLight'),
+                url("{% static 'fonts/Pretendard-ExtraLight.woff' %}") format('woff');
+          }
+          
+          @font-face {
+            font-family: 'Pretendard';
+            font-style: normal;
+            font-weight: 100;
+            src: local('Pretendard Thin'), local('Pretendard-Thin'),
+                url("{% static 'fonts/Pretendard-Thin.woff' %}") format('woff');
+          }
     </style>
 
 </head>

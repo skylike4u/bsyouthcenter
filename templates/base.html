@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
-
+    
 {% include 'partials/head.html' %}
 
-<body style="font-family: 'NanumSquareR';">
-
+<body style="font-family: 'Pretendard' ; text-decoration: none;">
+    <header>
     {% include 'partials/nav.html' %}
+    </header>
 
     <hr>
 
+    <!-- 기본적으로 메시지 앱이 intalled_app 안에 들어가 있어서 어디서든 messages라는 것을 접근할 수 있음 -->
     <!-- {% for message in messages %}
 
     <div class="text-center">
@@ -26,5 +28,8 @@
 
     {% include 'partials/footer.html' %}
 
+    <!-- <a id="backtotop"></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script> -->
+    <script type="text/babel" src="/static/js/main.js"></script>
 </body>
 </html>

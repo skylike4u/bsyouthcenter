@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<!-- 메인 이미지 섹션 -->
+    <section class="main">
+        <div class="main-container">
+            <div class="inner">
+                <div class="title-container">
+                    <div class="title">수강자 입장을 고민한, 특별한 IT강의입니다</div>
+
+                    <div class="message">
+                        전자책보다 좋은 자료와 <br />
+                        현업의 경험으로<br />
+                        검증된 강의를 제공합니다<br />
+                        <a href="blog" target="_blank" >
+                            <div class="news">최신 소식: 잔재미코딩 블로그 오픈 [클릭]</div></a
+                        >
+                        <br />
+                        <a href="#" target="_blank" 
+                            ><button type="button" class="btn btn-danger" style="padding: 4px 8px">About 잔재미코딩</button></a
+                        >
+                        <a href="#" target="_blank" 
+                            ><button type="button" class="btn btn-primary" style="padding: 4px 8px">잔재미코딩 후기</button></a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="inner">
+            <div class="skill-container">
+                <div class="skill">
+                    <i class="fab fa-python skill-icon python-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">업무 자동화</div>
+                        <div class="skill-usage">크롤링/자동매매</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="far fa-chart-bar skill-icon analysis-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">데이터 분석</div>
+                        <div class="skill-usage">데이터 분석/SQL</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-app-store-ios skill-icon ai-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">AI</div>
+                        <div class="skill-usage">인공지능 활용</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-vuejs skill-icon vue-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">풀스택</div>
+                        <div class="skill-usage">웹/앱 서비스</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="inner">
+            <div class="roadmap-container">
+                <div class="roadmap-title-container">
+                    <div class="roadmap-title">주요 블로그 글</div>
+                    <div class="arrow-container">
+                        <i class="fas fa-chevron-circle-left slide-prev"></i>
+                        <i class="fas fa-chevron-circle-right slide-next"></i>
+                    </div>
+                </div>
+		<!-- HTML5 에서는 태그에 확장처리를 위한 속성으로 data-* 속성 추가
+            data-변수이름=변수값 으로 정의하고, JS 등에서 활용 가능
+          -->
+          <ul class="class-list" data-position="0">
+            <a
+                href="#"
+                target="_blank"
+                
+            >
+                <li class="class-card">
+                    <img src="style/images/blog.jpg" alt="잔재미코딩 블로그" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">학습방법</div>
+                            <div class="class-format">블로그</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">IT는 배우는 방법을 익혀야합니다</div>
+                            <div class="class-detail">비전공자와 입문자가 IT와 프로그래밍을 익히는 전략</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="blog/?p=52" target="_blank">
+                <li class="class-card">
+                    <img src="style/images/art/database.jpg" alt="잔재미코딩 블로그" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">학습방법</div>
+                            <div class="class-format">블로그</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">뼛속까지 문과생이 빅데이터 개발자가 되기까지</div>
+                            <div class="class-detail">비전공자와 입문자가 IT와 프로그래밍을 익히는 전략</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="blog/?p=42" target="_blank">
+                <li class="class-card">
+                    <img src="style/images/art/newcommer.png" alt="잔재미코딩 블로그" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">학습방법</div>
+                            <div class="class-format">블로그</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">블로그를 시작하며 - 도커?와 블로그</div>
+                            <div class="class-detail">잔재미코딩 블로그 소개</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="blog/?p=76" target="_blank">
+                <li class="class-card">
+                    <img src="style/images/art/coding.gif" alt="잔재미코딩 블로그" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">학습방법</div>
+                            <div class="class-format">블로그</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">혹시 IT를 배워봤는데, 잘안된다면?</div>
+                            <div class="class-detail">혹시? 유투브나 다른 강의를 한번 들어봐도 어렵기만 하다면?</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a href="blog/?p=66" target="_blank">
+                <li class="class-card">
+                    <img src="style/images/art/SWTech.jpg" alt="잔재미코딩 블로그" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">학습방법</div>
+                            <div class="class-format">블로그</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">잔재미코딩 강의중, 어느 강의를 들을까? 고민이라면?</div>
+                            <div class="class-detail">(코린이편) 잔재미코딩 강의중, 어느 강의를 들을까? 고민이라면?</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+</section>
+<section>
+<div class="inner">
+    <div class="roadmap-container">
+        <div class="roadmap-title-container">
+            <div class="roadmap-title">
+                기초부터 활용 압축 과정 <span class="roadmap-desc">(기초부터 가장 다양하고 실질적인 활용 과정)</span>
+            </div>
+            <div class="arrow-container">
+                <i class="fas fa-chevron-circle-left slide-prev"></i>
+                <i class="fas fa-chevron-circle-right slide-next"></i>
+            </div>
+        </div>
+        <ul class="class-list" data-position="0">
+            <a
+                href="https://class101.app/e/frsqaRHmeWDTZwvy0yBt"
+                target="_blank"
+                
+            >
+                <li class="class-card">
+                    <img src="style/images/class101_data.png" alt="잔재미코딩 파이썬 데이터 분석 강의" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">파이썬</div>
+                            <div class="class-format">온라인 강의</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">파이썬 기초부터 데이터 분석 활용</div>
+                            <div class="class-detail">파이썬 기초, SQL, pandas, 시각화와 비트코인, 주식, 부동산까지</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+            <a
+                href="https://class101.app/e/python_auto"
+                target="_blank"
+                
+            >
+                <li class="class-card">
+                    <img src="style/images/class101_auto.png" alt="잔재미코딩 파이썬 자동화 강의" class="class-image" />
+                    <div class="class-container">
+                        <div class="class-skill">
+                            <div class="class-type">파이썬</div>
+                            <div class="class-format">온라인 강의</div>
+                        </div>
+                        <div class="class-desc">
+                            <div class="class-title">파이썬 기초부터 자동화 활용</div>
+                            <div class="class-detail">파이썬 기초부터 가장 다양한 자동화 템플릿 코드 활용하기</div>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}

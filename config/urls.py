@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 # include를 통해 하위분개 실시
 urlpatterns = [
     path("", include("core.urls")),
+    path("articles/", include("articles.urls")),
+    path("profiles/", include("profiles.urls")),
     path("users/", include("users.urls")),
     path("blogs/", include("blogs.urls")),
     path("admin/", admin.site.urls),

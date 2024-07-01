@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 import os
 from pathlib import Path
 
@@ -40,6 +41,7 @@ PROJECT_APPS = [
     "blogs.apps.BlogsConfig",
     "news.apps.NewsConfig",
     "profiles.apps.ProfilesConfig",
+    "articles.apps.ArticlesConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -142,3 +144,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGIN_REDIRECT_URL = reverse_lazy("core:home")
+LOGOUT_REDIRECT_URL = reverse_lazy("users:login")
