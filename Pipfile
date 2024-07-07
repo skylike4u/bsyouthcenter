@@ -9,6 +9,7 @@ flake8 = "*"
 pillow = "*"
 django-countries = "*"
 django-bootstrap4 = "*"
+django-environ = "*"
 
 [dev-packages]
 black = "*"
