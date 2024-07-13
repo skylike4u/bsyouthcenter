@@ -10,6 +10,7 @@ pillow = "*"
 django-countries = "*"
 django-bootstrap4 = "*"
 django-environ = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"

@@ -15,13 +15,13 @@ from articles.decorators import article_ownership_required
 
 from articles.forms import ArticleCreationForm
 
-# from commentapp.forms import CommentCreationForm
+from comments.forms import CommentCreationForm
 from articles.models import Article
 
 
 # 게시글 작성할때는 로그인이 되어 있어야 함(데코레이터 사용)
-@method_decorator(login_required, "get")
-@method_decorator(login_required, "post")
+@method_decorator(login_required, name="get")
+@method_decorator(login_required, name="post")
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreationForm
@@ -29,11 +29,9 @@ class ArticleCreateView(CreateView):
 
     # 서버에서 직접 writer값을 지정하기 위해 form_valid를 오버라이딩해서 user값을 writer에 추가
     def form_valid(self, form):
-
         temp_article = form.save(commit=False)
         temp_article.writer = self.request.user
         temp_article.save()
-
         return super().form_valid(form)
 
     # success_url 메소드로 오버라이딩해줄텐데, 게시글이 완성이 되면 게시글 detailview로 연결을 시켜줌
@@ -41,12 +39,9 @@ class ArticleCreateView(CreateView):
         return reverse("articles:detail", kwargs={"pk": self.object.pk})
 
 
-# comment app을 만든다음 FormMixin을 추가해라
-# class ArticleDetailView(DetailView, FormMixin):
-class ArticleDetailView(DetailView):
+class ArticleDetailView(DetailView, FormMixin):
     model = Article
-    # form_class = CommentCreationForm
-    form_class = None
+    form_class = CommentCreationForm
     context_object_name = "target_article"
     template_name = "articles/detail.html"
 
@@ -80,3 +75,6 @@ class ArticleListView(ListView):
     context_object_name = "article_list"
     template_name = "articles/list.html"
     paginate_by = 25
+
+    def get_queryset(self):
+        return Article.objects.all().order_by("-pk")

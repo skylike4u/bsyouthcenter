@@ -15,15 +15,13 @@
     <form action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <!-- {{form}} -->
-      {% bootstrap_form form %}
-      
+      {% bootstrap_form form %}  
       <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3" value="POST" />
-      
     </form>
   </div>
 
-  <!-- medium-editor를 선언하는 부분을 넣어준다 -->
-  <script>var editor = new MediumEditor('.editable');</script>
+<!-- medium-editor를 선언하는 부분을 넣어준다 -->
+<script>var editor = new MediumEditor('.editable');</script>
   
 {% endblock %}
 
