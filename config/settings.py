@@ -140,8 +140,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "/static/"
+print(f"BASE_DIR: {BASE_DIR}")
+
+# STATIC_ROOT라는 변수에 우리가 python manage.py collectstatic을 했을 때 경로를 지정해준 것임
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+print(f"STATIC_ROOT: {STATIC_ROOT}")
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 
 # media 관련 설정
 # MEDIA_URL은 주소창에 MEDIA 이하의 경로로 접근을 해야지 실제 MEDIA 파일에 접근가능함
