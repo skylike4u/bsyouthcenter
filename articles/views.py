@@ -20,8 +20,8 @@ from articles.models import Article
 
 
 # 게시글 작성할때는 로그인이 되어 있어야 함(데코레이터 사용)
-@method_decorator(login_required, name="get")
-@method_decorator(login_required, name="post")
+@method_decorator(login_required, "get")
+@method_decorator(login_required, "post")
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreationForm
