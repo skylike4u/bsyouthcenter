@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from articles.models import Article
 
-# from projectapp.models import Ppythoroject
+from projects.models import Project
 
 
 class ArticleCreationForm(ModelForm):
@@ -14,10 +14,8 @@ class ArticleCreationForm(ModelForm):
         )
     )
 
-    # project = forms.ModelChoiceField(queryset=Project.objects.all(), required=False)
+    project = forms.ModelChoiceField(queryset=Project.objects.all(), required=False)
 
     class Meta:
         model = Article
-        fields = ["title", "image", "content"]
-        # project app을 생성하고 "project"를 추가할것
-        # fields = ["title", "image", "project", "content"]
+        fields = ["title", "image", "project", "content"]

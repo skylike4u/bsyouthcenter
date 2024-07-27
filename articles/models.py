@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# from projectapp.models import Project
+from projects.models import Project
 
 
 class Article(models.Model):
@@ -9,7 +9,10 @@ class Article(models.Model):
     writer = models.ForeignKey(
         User, on_delete=models.SET_NULL, related_name="article", null=True
     )
-    # project = models.ForeignKey(Project, on_delete=models.SET_NULL, related_name='article', null=True)
+    # 어느 project에 해당되는 지 연결고리를 만들어 준다.
+    project = models.ForeignKey(
+        Project, on_delete=models.SET_NULL, related_name="article", null=True
+    )
 
     title = models.CharField(max_length=200, null=True)
     image = models.ImageField(upload_to="article/", null=False)

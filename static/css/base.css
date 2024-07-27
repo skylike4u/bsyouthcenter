@@ -15,6 +15,7 @@ body {
 /* a 링크 태그 스타일 초기화 */
 a {
     all: unset;
+    color: block;
 }
 
 a:hover {
