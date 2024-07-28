@@ -33,6 +33,7 @@ PROJECT_APPS = [
     "profiles.apps.ProfilesConfig",
     "articles.apps.ArticlesConfig",
     "comments.apps.CommentsConfig",
+    "projects.apps.ProjectsConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
