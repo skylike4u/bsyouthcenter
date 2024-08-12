@@ -1,8 +1,10 @@
 from django.urls import reverse_lazy
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -34,6 +36,7 @@ PROJECT_APPS = [
     "articles.apps.ArticlesConfig",
     "comments.apps.CommentsConfig",
     "projects.apps.ProjectsConfig",
+    "likes.apps.LikesConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -48,6 +51,10 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
 
 ROOT_URLCONF = "config.urls"
 

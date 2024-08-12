@@ -1,43 +1,100 @@
-<div class="pragmatic_header" style="text-align:center;">
-    
-    <div>
-        <a href="{% url 'core:home' %}" class="pragmatic_logo">
-            <h1>BUSAN Youth Archives</h1>
-        </a>
-    </div>
-    
+{% load static %}
 
-    <div class="pragmatic_header_navbar">
+<header>
+    <div class="inner">
+        <a href="/" class="logo">
+            <img src="{% static '/images/logo.png' %}" alt="logo" />
+        </a>
 
-        <a href="{% url 'blogs:list' %}" class="pragmatic_header_nav">
-            <span>News</span>
-        </a>
-        <a href="{% url 'articles:list' %}" class="pragmatic_header_nav">
-            <span>Ariticles</span>
-        </a>
-        <a href="{% url 'blogs:list' %}" class="pragmatic_header_nav">
-            <span>Posts</span>
-        </a>
-        <a href="{% url 'projects:list' %}" class="pragmatic_header_nav">
-            <span>Projects</span>
-        </a>
-        <a href="#" class="pragmatic_header_nav">
-            <span>Subscription</span>
-        </a>
-        {% if not user.is_authenticated %}
-        <a href="{% url 'users:login' %}?next={{ request.path }}" class="prgmatic_header_nav">
-            <span>Login</span>
-        </a>
-        <a href="{% url 'users:create' %}" class="pragmatic_header_nav">
-            <span>Sign Up</span>
-        </a>
-        {% else %}
-        <a href="{% url 'users:detail' pk=user.pk %}" class="pragmatic_header_nav">
-            <span>MyPage</span>
-        </a>
-        <a href="{% url 'users:logout' %}?next={{ request.path }}" class="prgmatic_header_nav">
-            <span>Logout</span>
-        </a>
-        {% endif %}
-    </div>
-</div>
+        <div class="sub-menu">
+          <ul class="menu">
+            {% if not user.is_authenticated %}
+            <li>
+                <a href="{% url 'users:login' %}?next={{ request.path }}">LOG In</a>
+            </li>
+            <li>
+                <a href="{% url 'users:create' %}">SIGN IN</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'users:detail' pk=user.pk %}">MY PAGE</a>
+            </li>
+            <li>
+                <a href="{% url 'users:logout' %}?next={{ request.path }}" >LOG OUT</a>
+            </li>
+            {% endif %}
+            <li>
+                <a href="#">SUBSCRIPTION</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">Find a Youth place</a>
+            </li>
+          </ul>
+          <div class="search">
+            <input type="text" />
+            <span class="material-icons">search</span>
+          </div>
+        </div>
+
+        <ul class="main-menu">
+            <li class="item">
+                <div class="item__name">NEWS</div>
+                <div class="item__contents">
+
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">
+                    <a href="{% url 'articles:list' %}">ARTICLES</a>    
+                </div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">LIFESTYLE</div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">COMMUNITY</div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">ARCHIVE</div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">NEWSLETTER</div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+            <li class="item">
+                <div class="item__name">ABOUT US</div>
+                <div class="item__contents">
+                    
+                </div>
+            </li>
+        </ul>
+
+    </div>      
+
+     <!--BADGES-->
+    <!-- <div class="badges">
+        <div class="badge">
+            <img src="{% static '/images/badge1.jpg' %}" alt="Badge" />
+        </div>
+        <div class="badge">
+            <img src="{% static '/images/badge2.png' %}" alt="Badge" />
+        </div>
+    </div> -->
+</header>
+
+
+

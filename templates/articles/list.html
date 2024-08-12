@@ -32,6 +32,15 @@
           
     </style>
 
+    <div class="pragmatic_header" style="text-align:left;">
+        <div class="inner">
+            <a href="{% url 'core:home' %}" class="pragmatic_logo">
+                <h3>BUSAN Youth Archive</h3>
+            </a>
+        </div>
+    </div>
+
+
     {% if article_list %}
     <div class="container">
       {% for article in article_list %}

@@ -13,6 +13,7 @@ urlpatterns = [
     path("comments/", include("comments.urls")),
     path("projects/", include("projects.urls")),
     path("blogs/", include("blogs.urls")),
+    path("likes/", include("likes.urls")),
     path("admin/", admin.site.urls),
 ]
 

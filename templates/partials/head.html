@@ -15,7 +15,7 @@
 		<meta propery="og:type" content="website" />
 		<!-- https://ogp.me/#types -->
 		<meta property="og:title" content="부산청년센터 아카이빙 교류 웹사이트" />
-		<meta property="og:description" content="부산경제진흥원 구성원이 만들어가는 청년을 위한 부산청년센터 웹사이트입니다." />
+		<meta property="og:description" content="부산경제진흥원 구성원이 만들어가는 부산청년센터 업무용 웹사이트입니다." />
 		<!-- <meta property="og:image" content="img/fun-coding-mark.png" /> -->
 		<!-- <meta property="og:url" content="https://www.fun-coding.org" /> -->
 		<meta property="og:site_name" content="부산청년센터" />
@@ -31,11 +31,11 @@
 		<meta name="twitter:creator" content="JH Choi" />
 
     <!-- 일반적인 fabicon 설정 -->
-		<!-- <link rel="icon" href="img/fun-coding.ico" /> -->
+		<link rel="icon" href="{% static 'images/favicon.png' %}" />
 		<!-- 아이폰용 fabicon 설정 -->
-		<!-- <link rel="apple-touch-icon" href="img/fun-coding.ico" /> -->
+		<link rel="apple-touch-icon" href="{% static 'images/favicon.png' %}" />
 		<!-- 인터넷 익스플러용 fabicon 설정-->
-		<!-- <link rel="short icon" type="image/x-icon" href="img/fun-coding.ico" /> -->
+		<link rel="short icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
 
 
     <!--  BOOTSTRAP LINK (내부 부트스트랩 파일과 중복이긴 함)  -->
@@ -49,6 +49,9 @@
     <!-- fontawesome Link -->
     <script src="https://kit.fontawesome.com/04ef2cabdf.js" crossorigin="anonymous"
       ></script>
+    
+    <!-- reset.css - CDN 링크(브라우저에 기본값 css 제거/초기화) / 메인점 css보다 먼저 동작할 수 있게 앞서서 작성필요(중요)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     
     <!--  DEFAULT CSS LINK  -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
@@ -165,5 +168,7 @@
                 url("{% static 'fonts/Pretendard-Thin.woff' %}") format('woff');
           }
     </style>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="{% static '/js/main.js' %}"></script>
 </head>
