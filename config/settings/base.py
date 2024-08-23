@@ -25,6 +25,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "django_countries",
     "bootstrap4",
+    "requests",
+    "openpyxl",
 ]
 
 PROJECT_APPS = [
@@ -37,6 +39,7 @@ PROJECT_APPS = [
     "comments.apps.CommentsConfig",
     "projects.apps.ProjectsConfig",
     "likes.apps.LikesConfig",
+    "search.apps.SearchConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
@@ -131,6 +134,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -11,17 +12,17 @@
                     <div class="title">부산청년들의 삶의 이야기를 기록합니다.</div>
 
                     <div class="message">
-                        유익한 청년지원 정보와 <br />
-                        다양한 청년의 이야기로<br />
-                        당신의 삶을 더 나아지게 하고자 합니다.<br />
-                        <a href="blog" target="_blank" >
+                        유익한 삶의 정보와<br />
+                        다양한 청년의 이야기를 담아<br />
+                        당신의 일상에 영감을 주고자 합니다.<br />
+                        <a href="#" target="_blank" >
                             <div class="news">최신 소식: Hot Issue [클릭]</div></a
                         >
                         <br />
-                        <a href="#" target="_blank" 
+                        <a href="https://young.busan.go.kr/bycenter/index.nm" target="_blank" 
                             ><button type="button" class="btn btn-danger" style="padding: 4px 8px">부산청년센터 홈페이지</button></a
                         >
-                        <a href="#" target="_blank" 
+                        <a href="https://www.instagram.com/youthcenterbusan/" target="_blank" 
                             ><button type="button" class="btn btn-primary" style="padding: 4px 8px">부산청년센터 인스타그램</button></a
                         >
                     </div>
@@ -83,7 +84,7 @@
                 
             >
                 <li class="class-card">
-                    <img src="#" alt="블로그" class="class-image" />
+                    <img src="{% static '/images/article1.jpg' %}" alt="newjeans" class="class-image" />
                     <div class="class-container">
                         <div class="class-skill">
                             <div class="class-type">How we work</div>
@@ -98,7 +99,7 @@
             </a>
             <a href="#" target="_blank">
                 <li class="class-card">
-                    <img src="#" alt="How we communicate" class="class-image" />
+                    <img src="{% static '/images/article2.jpg' %}" alt="How we communicate" class="class-image" />
                     <div class="class-container">
                         <div class="class-skill">
                             <div class="class-type">소통방법</div>
@@ -111,9 +112,9 @@
                     </div>
                 </li>
             </a>
-            <a href="blog/?p=42" target="_blank">
+            <a href="#" target="_blank">
                 <li class="class-card">
-                    <img src="#" alt="테스트 블로그" class="class-image" />
+                    <img src="{% static '/images/article3.jpg' %}" alt="테스트 블로그" class="class-image" />
                     <div class="class-container">
                         <div class="class-skill">
                             <div class="class-type">학습방법</div>
@@ -128,7 +129,7 @@
             </a>
             <a href="#" target="_blank">
                 <li class="class-card">
-                    <img src="#" alt="일잘알 성장전략" class="class-image" />
+                    <img src="{% static '/images/article4.jpg' %}" alt="일잘알 성장전략" class="class-image" />
                     <div class="class-container">
                         <div class="class-skill">
                             <div class="class-type">학습방법</div>
@@ -143,7 +144,7 @@
             </a>
             <a href="#" target="_blank">
                 <li class="class-card">
-                    <img src="#" alt="블로그" class="class-image" />
+                    <img src="{% static '/images/article5.jpg' %}" alt="블로그" class="class-image" />
                     <div class="class-container">
                         <div class="class-skill">
                             <div class="class-type">오늘 당신의 일상을</div>
@@ -172,6 +173,9 @@
                 <i class="fas fa-chevron-circle-right slide-next"></i>
             </div>
         </div>
+        <!-- HTML5 에서는 태그에 확장처리를 위한 속성으로 data-* 속성 추가
+            data-변수이름=변수값 으로 정의하고, JS 등에서 활용 가능
+          -->
         <ul class="class-list" data-position="0">
             <a
                 href="#"

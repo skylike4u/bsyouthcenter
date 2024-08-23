@@ -1,25 +1,83 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils.text import slugify
+from django.utils import timezone
 
-# Create your models here.
 
+# 카테고리 모델: 게시물을 카테고리(예: "건강", "여행", "패션")로 구성
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
 
-class Post(models.Model):
-
-    # # related_name은 user네임에서 article로 접근할 때 쓰는 속성이기 때문에 직관적으로 article이라고 써줌
-    # writer = models.ForeignKey(
-    #     User, on_delete=models.SET_NULL, related_name="article", null=True
-    # )
-    # project = models.ForeignKey(
-    #     Project, on_delete=models.SET_NULL, related_name="article", null=True
-    # )
-
-    # title = models.CharField(max_length=200, null=True)
-    # image = models.ImageField(upload_to="article/", null=False)
-    # content = models.TextField(null=True)
-
-    # created_at = models.DateField(auto_now_add=True, null=True)
-
-    # like = models.IntegerField(default=0)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
+
+
+# 태그 모델 : 게시물에 키워드(예: "피트니스", "럭셔리")를 태그할 수 있음
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.name
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    content = models.TextField()
+    excerpt = models.TextField(max_length=300, blank=True)
+    categories = models.ManyToManyField(Category, related_name="posts")
+    tags = models.ManyToManyField(Tag, related_name="posts", blank=True)
+    published_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # 게시물과 관련된 기본 이미지에 대한 featured_image
+    featured_image = models.ImageField(upload_to="blog_images/", null=True, blank=True)
+    # 게시물은 즉시 게시되거나  is_published 플래그를 사용하여 초안으로 설정가능
+    is_published = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ["-published_at"]
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    author = models.CharField(max_length=100)
+    email = models.EmailField()
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"Comment by {self.author} on {self.post}"
+
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email

@@ -11,6 +11,8 @@ django-countries = "*"
 django-bootstrap4 = "*"
 django-environ = "*"
 gunicorn = "*"
+requests = "*"
+openpyxl = "*"
 
 [dev-packages]
 black = "*"
