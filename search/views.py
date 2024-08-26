@@ -11,7 +11,10 @@ import environ
 
 
 # Initialize environment variables
-env = environ.Env()
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
 
 # 검색을 처리하고 결과를 렌더링하는 메인 뷰 함수
