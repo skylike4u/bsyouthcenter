@@ -43,8 +43,10 @@ header > .inner {
     height: 100px;
 }
 
+
+
 header .logo {
-    height: 75px;
+    height: 90px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -166,7 +168,8 @@ header .badges .badge {
 
 /* main section */
 .main {
-    margin-top: 100px; /* 화면 이미지 고정 */
+    
+	margin-top: 84px; /* 화면 이미지 고정, heigth인 100px->84px로 변경 */ 
     /* header에 position이 fixed되어있고, height 크기만큼 margin-top: 넣어줌 */
     background-image: url("/");
     background-size: cover;
