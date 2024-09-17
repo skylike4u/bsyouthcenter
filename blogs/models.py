@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+import os
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -43,6 +45,7 @@ class Post(models.Model):
     published_at = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    file_upload = models.FileField(upload_to="files/%Y/%m/%d", blank=True)
     # 게시물과 관련된 기본 이미지에 대한 featured_image
     featured_image = models.ImageField(upload_to="blog_images/", null=True, blank=True)
     # 게시물은 즉시 게시되거나  is_published 플래그를 사용하여 초안으로 설정가능
@@ -58,6 +61,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("blogs:detail", kwargs={"pk": self.pk})
+
+    def get_file_name(self):
+        return os.path.basename(self.file_upload.name)
+
+    def get_file_ext(self):
+        return self.get_file_name().split(".")[-1]
 
 
 class Comment(models.Model):

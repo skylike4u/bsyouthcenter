@@ -8,11 +8,11 @@ body {
    }
 a {
     /* color: black; */
-    text-decoration: none;
+    text-decoration: none !important; /* 밑줄 제거 */
 }
 a:hover {
     color: #7FDBB3;
-    text-decoration: none; /* Removes underline */
+    text-decoration: none !important; /* Removes underline */
 }
 /* 프로젝트의 모든 img 태그를 디폴트 inline요소에서 block요소로 바꾸어서 글자가 되어 불필요한 여백을 없앤다 */
 img {

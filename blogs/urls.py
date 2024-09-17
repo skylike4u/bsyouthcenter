@@ -2,11 +2,12 @@ from django.views.generic import TemplateView
 from django.urls import path
 
 
-from . import views
+from .views import PostListView, PostDetailView
 
 app_name = "blogs"
 
 # routing
 urlpatterns = [
-    path("list/", TemplateView.as_view(template_name="blogs/list.html"), name="list"),
+    path("list/", PostListView.as_view(), name="list"),
+    path("post/<int:pk>", PostDetailView.as_view(), name="detail"),
 ]

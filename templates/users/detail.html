@@ -7,7 +7,10 @@
 
         <!-- target_user의 profile이 존재하면, nickname으로 보여준다(보안문제) -->
         {% if target_user.profile %}
-        <img src="{{ target_user.profile.image.url }}" alt="my_profile_image" style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
+        <div style="display: flex; justify-content: center;" >
+          <img src="{{ target_user.profile.image.url }}" alt="my_profile_image" style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
+        </div>
+        
         <h2 style="font-family: NanumSquareB;">
             {{ target_user.profile.nickname }}
             {% if target_user == user %}

@@ -60,7 +60,7 @@ class ProjectDetailView(DetailView, MultipleObjectMixin):
             subscription = None
         # template에서 subscription을 통해서 구독정보가 있는 지 여부를 확인할 수 있음
         # project라는 값이 self.get_object()와 같은 값을 가진 article을 모두 필터링해서, object_list 변수 안에 넣는다
-        # 템플릿 참에서 object_list라는 것을 사용해서, 필터링한 게시글들을 사용할 수 있게 된다.
+        # 템플릿 창에서 object_list라는 것을 사용해서, 필터링한 게시글들을 사용할 수 있게 된다.
         object_list = Article.objects.filter(project=self.get_object())
         return super(ProjectDetailView, self).get_context_data(
             object_list=object_list, subscription=subscription, **kwargs

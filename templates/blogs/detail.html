@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- 해당 detail 페이지의 기본적인 스타일 설정 -->
+<style>
+
+    .post-header {
+        text-align: center;
+    }
+    .post-header-title {
+        font-size: 38px;
+        margin-bottom: 15px;
+
+    }
+    .post-excerpt {
+        font-size: 18px;
+    }
+    .post-body {
+        text-align: left;
+        font-size: 20px;
+    }
+    .post-body .post-body-image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+
+    }
+    .post-body .post-body-image img {
+        height: 560px;
+        width: 840px;
+        object-fit: cover;
+        
+    }
+    .post-body .post-body-content {
+        margin: 0 180px 0 180px;
+    }
+    .post-body .post-body-footer {
+        text-align: center;
+    }
+
+</style>
+
+
+
+<div class="inner" style="margin-top: 120px">
+    
+    <div class="post-header">
+        <b class="post-header-title">{{post.title}}</b>
+        <p class="post-excerpt">{{post.excerpt}}</p>
+        <p>BY {{post.author}} &nbsp;&nbsp; <span>|</span> &nbsp;&nbsp; {{post.published_at}}</p>
+    </div>
+    <div class="post-body">
+        <div class="post-body-image">
+            <img src="{{post.featured_image.url}}" alt="기사 메인이미지">
+        </div>        
+        <div class="post-body-content"> {{post.content}}</div>
+        <div class="post-body-footer">Footer</div>
+
+    </div>
+    
+    
+</div>
+
+
+{% endblock %}
