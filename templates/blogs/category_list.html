@@ -42,7 +42,7 @@
                         <div class="row align-items-center">
                             <!-- 이미지 배치 (좌측) -->
                             <div class="col-md-5">
-                                <a href="{% url 'blogs:detail' pk=post.pk %}">
+                                <a href="{% url 'blogs:detail' pk=post.pk %}" >
                                     <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
                                 </a>
                             </div>
