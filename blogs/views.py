@@ -40,6 +40,25 @@ class PostListView(ListView):
         return context
 
 
+# 카테고리별 전체 게시물을 보여줄 뷰
+class CategoryPostListView(ListView):
+    model = Post
+    template_name = "blogs/category_list.html"
+    context_object_name = "posts"
+    paginate_by = 10  # 페이지당 10개의 게시물
+
+    def get_queryset(self):
+        # URL에서 전달된 카테고리 이름으로 필터링
+        # category_name에서 슬래시(/)를 하이픈(-)으로 변경하여 URL을 생성 (슬래시(/)를 URL에서 처리하기 어렵기 때문에, 슬래시를 -와 같은 문자로 대체하는 방법)
+        category_name = self.kwargs.get("category_name").replace("-", "/")
+        return Post.objects.filter(categories__name=category_name)
+
+    def get_context_data(self, **kwargs):
+        context = super(CategoryPostListView, self).get_context_data(**kwargs)
+        context["category_name"] = self.kwargs.get("category_name")
+        return context
+
+
 class PostDetailView(DeleteView):
     model = Post
     context_object_namae = "post"

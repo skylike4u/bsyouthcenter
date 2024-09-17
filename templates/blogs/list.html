@@ -61,7 +61,7 @@
             <div class="main-content">
                 <a href="#" target="_blank">
                     <strong style="font-size: 48px;">오늘 당신의 하루는 안녕하신가요? You should live in the moment.</strong>
-                    <p style="font-size: 18px;">지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다. 이 곳의 정보들이 당신의 삶에 조금이나마 도움이 될 수 있길 바랍니다.</p>
+                    <p style="font-size: 18px;">지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다.</p>
                     <p style="font-size: 11px;">BY Editors</p>
                 </a>
                 
@@ -81,6 +81,9 @@
                     <span style="color: red;">|</span>건강</h3>
             </a>
             <span>The Best Picks From Our exports</span>
+            <a href="{% url 'blogs:category_post_list' category_name='건강' %}" class="btn-more" style="float: right">
+                더 보기
+            </a>
         </div>
         <div class="content">
             {% if health_posts_4pcs %}
@@ -108,6 +111,9 @@
                     <span style="color: red;">|</span>여행</h3>
             </a>
             <span>부산사람들이 사랑하는 여행지/핫플레이스</span>
+            <a href="{% url 'blogs:category_post_list' category_name='여행' %}" class="btn-more" style="float: right">
+                더 보기
+            </a>
         </div>
         <div class="content">
             {% if travel_posts_4pcs %}
@@ -135,6 +141,9 @@
                     <span style="color: red;">|</span>FOOD&BEVERAGY</h3>
             </a>
             <span>부산사람들이 사랑하는 먹거리 정보</span>
+            <a href="{% url 'blogs:category_post_list' category_name='음식' %}" class="btn-more" style="float: right">
+                더 보기
+            </a>
         </div>
         <div class="content">
             {% if food_beverage_posts_4pcs %}
@@ -162,6 +171,9 @@
                     <span style="color: red;">|</span>FASHION&BEAUTY</h3>
             </a>
             <span>전세계 사람들이 사랑하는 패션/뷰티 정보</span>
+            <a href="{% url 'blogs:category_post_list' category_name='패션-뷰티' %}" class="btn-more" style="float: right">
+                더 보기
+            </a>
         </div>
         <div class="content">
             {% if fashion_beauty_posts_4pcs %}
@@ -189,6 +201,9 @@
                     <span style="color: red;">|</span>MISCELLANEOUS</h3>
             </a>
             <span>한국 사람들이 흥미로워하는 다양한 정보</span>
+            <a href="{% url 'blogs:category_post_list' category_name='그외다양한주제' %}" class="btn-more" style="float: right">
+            더 보기
+            </a>
         </div>
         <div class="content">
             {% if miscellaneous_posts_4pcs %}
