@@ -54,8 +54,10 @@
         <div class="post-body-image">
             <img src="{{post.featured_image.url}}" alt="기사 메인이미지">
         </div>        
-        <div class="post-body-content"> {{post.content}}</div>
-        <div class="post-body-footer">Footer</div>
+        <div class="post-body-content"> {{post.content|safe}}</div>
+        <div class="post-body-footer">
+            <p>목록 돌아가기</p>
+            Footer</div>
 
     </div>
     

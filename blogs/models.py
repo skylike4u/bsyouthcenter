@@ -57,6 +57,14 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
+            original_slug = self.slug
+            queryset = Post.objects.filter(slug=self.slug)
+            count = 1
+            # 중복되는 slug가 있는지 확인하고, 있다면 고유한 slug를 생성
+            while queryset.exists():
+                self.slug = f"{original_slug}-{count}"
+                queryset = Post.objects.filter(slug=self.slug)
+                count += 1
         super().save(*args, **kwargs)
 
     def __str__(self):

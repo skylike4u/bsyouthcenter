@@ -21,6 +21,10 @@
         height: 476px;
 	    width: 600px;
         padding: 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
 
     }
     .main-container .main-image{
@@ -48,6 +52,50 @@
         color: black !important; /* 마우스를 올려도 색상 유지 */
         text-decoration: none !important; /* 마우스를 올려도 밑줄 유지 안함 */
       }
+    /* Style for the button */
+    .main-content .btn-ghost {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        background-color: transparent;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: absolute;
+        bottom: 0;
+        right: 0; /* Align the button to the bottom-right */
+        margin-bottom: 10px;
+    }
+
+    .main-content .btn-ghost:hover {
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+    }
+
+
+     /* Text content styling */
+     .main-content .text-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .main-content .text-content p {
+        margin-bottom: 20px;
+    }
+
+    /* Align the "By Editors" text to the bottom-left */
+    .main-content .text-content a + p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin-bottom: 10px;
+    }
 
 </style>
 
@@ -58,19 +106,29 @@
 
     <!-- 메인 표지 포스트 -->
     <div class="main-container">
-            <div class="main-content">
+        <div class="main-content">
+            <div class="text-content">
                 <a href="#" target="_blank">
-                    <strong style="font-size: 48px;">오늘 당신의 하루는 안녕하신가요? You should live in the moment.</strong>
-                    <p style="font-size: 18px;">지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다.</p>
+                    <strong style="font-size: 48px;">오늘 당신의 하루는 안녕하신가요?  </strong> <br/>
+                    <br />
+                    <p style="font-size: 18px;">
+                        지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다.
+                    </p>
                     <p style="font-size: 11px;">BY Editors</p>
                 </a>
-                
+                {% if user.is_authenticated %}
+                <a href="{% url 'blogs:create' %}" class="btn-ghost">글 쓰기</a>
+                {% else %}
+                <a href="{% url 'users:login' %}" class="btn-ghost">Log in</a>
+                {% endif %}
+
             </div>
-            <div class="main-image">
-                <a href="#" target="_blank">
-                    <img src="https://picsum.photos/600/601" alt="메인표지 이미지">
-                </a>
-            </div>
+        </div>
+        <div class="main-image">
+            <a href="#" target="_blank">
+                <img src="https://picsum.photos/600/601" alt="메인표지 이미지">
+            </a>
+        </div>
     </div>
     
     <!-- BLOG 헬스 카테고리 -->

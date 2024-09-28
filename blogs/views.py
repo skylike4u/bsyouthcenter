@@ -13,6 +13,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import FormMixin
 
 from .models import Post
+from .forms import PostCreationForm
 
 
 class PostListView(ListView):
@@ -59,7 +60,42 @@ class CategoryPostListView(ListView):
         return context
 
 
-class PostDetailView(DeleteView):
+class PostDetailView(DetailView):
     model = Post
     context_object_namae = "post"
     template_name = "blogs/detail.html"
+
+
+# 게시글 작성할때는 로그인이 되어 있어야 함(데코레이터 사용)
+@method_decorator(login_required, "get")
+@method_decorator(login_required, "post")
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostCreationForm
+    template_name = "blogs/create.html"
+
+    # 서버에서 직접 `author`값을 지정하기 위해 form_valid를 오버라이딩해서 user값을 author에 추가
+    def form_valid(self, form):
+        temp_post = form.save(commit=False)
+        temp_post.author = self.request.user
+        temp_post.save()
+
+        # categories 필드에 다중 카테고리를 설정
+        categories = form.cleaned_data["categories"]
+        temp_post.categories.set(
+            categories
+        )  # 이제 categories는 쿼리셋이므로 그대로 사용 가능
+
+        return super().form_valid(form)
+
+    # success_url 메소드로 오버라이딩해줄텐데, 게시글이 완성이 되면 게시글 detailview로 연결을 시켜줌
+    def get_success_url(self):
+        return reverse("blogs:detail", kwargs={"pk": self.object.pk})
+
+
+class PostDeleteView(DeleteView):
+    pass
+
+
+class PostUpdateView(UpdateView):
+    pass

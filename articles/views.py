@@ -61,6 +61,8 @@ class ArticleUpdateView(UpdateView):
         return reverse("articles:detail", kwargs={"pk": self.object.pk})
 
 
+# 이 메소드 데코레이션은 주인이 맞는 지 확인하는 과정
+# 게시글 작성할때는 로그인이 되어 있어야 함(데코레이터 사용)
 @method_decorator(article_ownership_required, "get")
 @method_decorator(article_ownership_required, "post")
 class ArticleDeleteView(DeleteView):
