@@ -17,6 +17,8 @@
         justify-content: center;
         align-items: center;
         border-radius: 1rem;
+        width: 8rem;
+        height: 8rem;
         }
 
     .container img {
@@ -37,15 +39,16 @@
               {% include 'partials/card_project.html' with project=project %}
             </a>
             {% endfor %}
-          </div>
+        </div>
           <!-- (매직그리드 라이브러리 활용) 스크립트에서 src도 연결해주어야함 -->
           <script src="{% static 'js/magicgrid.js' %}" ></script>
-          {% else %}
-          <div style="text-align:center;">
-              <h1>No Project Yet!</h1>
-          </div>
-          {% endif %}
+    {% else %}
+        <div style="text-align:center;">
+            <h1>No Project Yet!</h1>
+        </div>
     </div>
+    {% endif %}
+    
     
 
     {% include 'partials/pagination.html' with page_obj=page_obj %}

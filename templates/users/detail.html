@@ -12,15 +12,16 @@
         </div>
         
         <h2 style="font-family: NanumSquareB;">
-            {{ target_user.profile.nickname }}
-            {% if target_user == user %}
+          {{ target_user.profile.nickname }}
+          {% if target_user == user %}
             <a class="material-icons"
             style="box-shadow: 0 0 4px #ccc; border-radius: 10rem; padding: .4rem;"
             href="{% url 'profiles:update' pk=target_user.profile.pk %}">
               edit
-            {% endif %}
-          </a>
-        </h2>
+            </a>
+          </h2>
+          {% endif %}
+        
           <!-- 대화명도 적어줌 -->
         <h5 style="margin-bottom: 3rem;">
             {{ target_user.profile.message }}

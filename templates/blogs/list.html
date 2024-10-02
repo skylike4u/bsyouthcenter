@@ -107,19 +107,18 @@
     <!-- 메인 표지 포스트 -->
     <div class="main-container">
         <div class="main-content">
-            <div class="text-content">
-                <a href="#" target="_blank">
-                    <strong style="font-size: 48px;">오늘 당신의 하루는 안녕하신가요?  </strong> <br/>
-                    <br />
-                    <p style="font-size: 18px;">
-                        지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다.
-                    </p>
-                    <p style="font-size: 11px;">BY Editors</p>
-                </a>
+            <div class="text-content">                
+                <strong style="font-size: 48px;">오늘 당신의 하루는 <br/>어떠셨나요?  </strong> <br/>
+                <br />
+                <p style="font-size: 18px;">
+                    지금 이 순간을 소중히 여기세요. 과거는 바꿀 수 없고, 미래는 허상일 뿐입니다. 첫 시작은 언제나 어렵지만 꾸준함이 결국은 달콤한 열매로 돌아올겁니다.
+                </p>
+                <p style="font-size: 11px;">BY Editors</p>
+
                 {% if user.is_authenticated %}
-                <a href="{% url 'blogs:create' %}" class="btn-ghost">글 쓰기</a>
+                <a href="{% url 'blogs:create' %}" class="btn-ghost" target="_blank">글 쓰기</a>
                 {% else %}
-                <a href="{% url 'users:login' %}" class="btn-ghost">Log in</a>
+                <a href="{% url 'users:login' %}" class="btn-ghost" target="_blank">Log in</a>
                 {% endif %}
 
             </div>
@@ -140,13 +139,13 @@
             </a>
             <span>The Best Picks From Our exports</span>
             <a href="{% url 'blogs:category_post_list' category_name='건강' %}" class="btn-more" style="float: right">
-                더 보기
+               << 더 보기
             </a>
         </div>
         <div class="content">
             {% if health_posts_4pcs %}
                 {% for post in health_posts_4pcs %}
-                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_blank" >
+                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_self" >
                     <div>
                         <div class="content-box" style="margin: 10px 10px;">
                             <img src="{{post.featured_image.url}}" alt="이미지">
@@ -170,13 +169,13 @@
             </a>
             <span>부산사람들이 사랑하는 여행지/핫플레이스</span>
             <a href="{% url 'blogs:category_post_list' category_name='여행' %}" class="btn-more" style="float: right">
-                더 보기
+                << 더 보기
             </a>
         </div>
         <div class="content">
             {% if travel_posts_4pcs %}
                 {% for post in travel_posts_4pcs %}
-                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_blank" >
+                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_self" >
                     <div>
                         <div class="content-box" style="margin: 10px 10px;">
                             <img src="{{post.featured_image.url}}" alt="이미지">
@@ -200,13 +199,13 @@
             </a>
             <span>부산사람들이 사랑하는 먹거리 정보</span>
             <a href="{% url 'blogs:category_post_list' category_name='음식' %}" class="btn-more" style="float: right">
-                더 보기
+                << 더 보기
             </a>
         </div>
         <div class="content">
             {% if food_beverage_posts_4pcs %}
                 {% for post in food_beverage_posts_4pcs %}
-                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_blank" >
+                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_self" >
                     <div>
                         <div class="content-box" style="margin: 10px 10px;">
                             <img src="{{post.featured_image.url}}" alt="이미지">
@@ -230,13 +229,13 @@
             </a>
             <span>전세계 사람들이 사랑하는 패션/뷰티 정보</span>
             <a href="{% url 'blogs:category_post_list' category_name='패션-뷰티' %}" class="btn-more" style="float: right">
-                더 보기
+                << 더 보기
             </a>
         </div>
         <div class="content">
             {% if fashion_beauty_posts_4pcs %}
                 {% for post in fashion_beauty_posts_4pcs %}
-                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_blank" >
+                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_self" >
                     <div>
                         <div class="content-box" style="margin: 10px 10px;">
                             <img src="{{post.featured_image.url}}" alt="이미지">
@@ -260,13 +259,13 @@
             </a>
             <span>한국 사람들이 흥미로워하는 다양한 정보</span>
             <a href="{% url 'blogs:category_post_list' category_name='그외다양한주제' %}" class="btn-more" style="float: right">
-            더 보기
+                << 더 보기
             </a>
         </div>
         <div class="content">
             {% if miscellaneous_posts_4pcs %}
                 {% for post in miscellaneous_posts_4pcs %}
-                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_blank" >
+                <a href="{% url 'blogs:detail' pk=post.pk %}" target="_self" >
                     <div>
                         <div class="content-box" style="margin: 10px 10px;">
                             <img src="{{post.featured_image.url}}" alt="이미지">

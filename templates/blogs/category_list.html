@@ -43,21 +43,23 @@
                             <!-- 이미지 배치 (좌측) -->
                             <div class="col-md-5">
                                 <a href="{% url 'blogs:detail' pk=post.pk %}" >
-                                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" style="width: 100%; height: auto; object-fit: cover;">
+                                    <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" class="img-fluid" style="width: 28rem; height: 28rem; object-fit: cover;">
                                 </a>
                             </div>
     
                             <!-- 텍스트 정보 배치 (우측) -->
                             <div class="col-md-7">
-                                <h5 class="mt-0 font-weight-bold mb-2">
+                                <h3 class="mt-0 font-weight-bold mb-2">
                                     <a href="{% url 'blogs:detail' pk=post.pk %}" class="text-decoration-none text-dark">
                                         {{ post.title|truncatechars:50 }}
                                     </a>
-                                </h5>
-                                <p class="text-muted mb-2 small">
-                                    By {{ post.author|upper }} / {{ post.published_date|date:"M d, Y" }}
-                                </p>
+                                </h3>
                                 <p class="font-italic text-muted mb-0 small">{{ post.excerpt|truncatechars:150 }}</p>
+                                <br />
+                                <br />
+                                <p class="text-muted mb-2 small">
+                                    By {{ post.author|upper }}  / {{ post.published_at|date:"M d, Y" }}
+                                </p>
                                 <div class="d-flex align-items-center justify-content-between mt-3">
                                     <a href="{% url 'blogs:detail' pk=post.pk %}" class="btn btn-primary btn-sm">Read More</a>
                                     <span class="text-muted small">

@@ -38,6 +38,23 @@
     .post-body .post-body-footer {
         text-align: center;
     }
+    .post-body .post-body-footer .btn-more button {
+        border: 2px solid #007bff;
+    }
+    .post-body-footer .btn-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        margin-top: 20px; /* Optional: add space above the button */
+    }
+    .post-body-footer .btn-container .btn-more button {
+        border: 2px solid #007bff;
+        padding: 10px 20px;
+        background-color: white;
+        color: #000000;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
 
 </style>
 
@@ -55,13 +72,53 @@
             <img src="{{post.featured_image.url}}" alt="기사 메인이미지">
         </div>        
         <div class="post-body-content"> {{post.content|safe}}</div>
-        <div class="post-body-footer">
-            <p>목록 돌아가기</p>
-            Footer</div>
-
+        <br />
     </div>
-    
-    
+
+    <div class="post-body-footer">
+
+        <!-- 첨부파일이 있는 경우 다운로드 버튼 만들기 -->
+        <div class="download-btn" style="text-align: left;">
+            {% if post.file_upload %}
+            
+            <span> &middot; Download: </span>
+            <a href="{{post.file_upload.url}}" class="btn btn-outline-success" role="button">
+                {% if post.get_file_ext == 'csv' %}
+                <i class="material-symbols-outlined">csv</i>
+                {% elif post.get_file_ext == 'pdf' %}
+                <i class="material-symbols-outlined">picture_as_pdf</i>
+                <!-- 엑셀 및 doc파일 분기 추가이나, 구글 material icon에는 해당아이콘 없음
+                {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                <i class="fa-regular fa-file-excel"></i>
+                {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                <i class="fa-regular fa-file-doc"></i> -->
+                {% else %}
+                <i class="material-symbols-outlined">download</i>
+                {% endif %} {{post.get_file_name}}
+            </a>
+            {% endif %}
+        </div>
+        
+        <br />
+        
+        <!-- 전체 목록리스트 버튼 만들기 -->
+        <div class="btn-container">
+            <a href="{% url 'blogs:list' %}" class="btn-more" style="float: center;">
+                <button style="border-radius: 7px;"><b>목 록</b></button>
+            </a>
+            
+            <!-- 해당 카테고리 목록을 나타내는 버튼(작동이 암됨/개선필요 -> slug로 개선검토) -->
+            <!-- {% for category in post.categories.all %}
+                <a href="{% url 'blogs:category_post_list' category_name=category.slug %}" class="btn-more" style="float: center">
+                    <button style="border-radius: 7px;">{{ category.name }} 목록</button>
+                </a>
+            {% endfor %} -->
+
+        </div>
+        
+    </div>
+
+        
 </div>
 
 
