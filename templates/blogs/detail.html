@@ -35,24 +35,27 @@
     .post-body .post-body-content {
         margin: 0 180px 0 180px;
     }
-    .post-body .post-body-footer {
+    .post-footer {
+        display: flex;
         text-align: center;
     }
-    .post-body .post-body-footer .btn-more button {
-        border: 2px solid #007bff;
+    .post-footer .download-btn {
+        margin: 0 180px 0 180px;
     }
-    .post-body-footer .btn-container {
+    .btn-container {
         display: flex;
         justify-content: center; /* Center horizontally */
         margin-top: 20px; /* Optional: add space above the button */
     }
-    .post-body-footer .btn-container .btn-more button {
+    .btn-container .btn-more button {
         border: 2px solid #007bff;
         padding: 10px 20px;
+        margin: 2rem 0;
         background-color: white;
         color: #000000;
         cursor: pointer;
         font-size: 16px;
+        
     }
 
 
@@ -75,12 +78,10 @@
         <br />
     </div>
 
-    <div class="post-body-footer">
-
+    <div class="post-footer">
         <!-- 첨부파일이 있는 경우 다운로드 버튼 만들기 -->
         <div class="download-btn" style="text-align: left;">
             {% if post.file_upload %}
-            
             <span> &middot; Download: </span>
             <a href="{{post.file_upload.url}}" class="btn btn-outline-success" role="button">
                 {% if post.get_file_ext == 'csv' %}
@@ -98,24 +99,21 @@
             </a>
             {% endif %}
         </div>
-        
         <br />
-        
-        <!-- 전체 목록리스트 버튼 만들기 -->
-        <div class="btn-container">
-            <a href="{% url 'blogs:list' %}" class="btn-more" style="float: center;">
-                <button style="border-radius: 7px;"><b>목 록</b></button>
-            </a>
-            
-            <!-- 해당 카테고리 목록을 나타내는 버튼(작동이 암됨/개선필요 -> slug로 개선검토) -->
-            <!-- {% for category in post.categories.all %}
-                <a href="{% url 'blogs:category_post_list' category_name=category.slug %}" class="btn-more" style="float: center">
-                    <button style="border-radius: 7px;">{{ category.name }} 목록</button>
-                </a>
-            {% endfor %} -->
+    </div>
 
-        </div>
+     <!-- 전체 목록리스트 버튼 만들기 -->
+     <div class="btn-container">
+        <a href="{% url 'blogs:list' %}" class="btn-more" style="float: center;">
+            <button style="border-radius: 7px;"><b>목 록</b></button>
+        </a>
         
+        <!-- 해당 카테고리 목록을 나타내는 버튼(작동이 안됨/개선필요 -> slug로 개선검토) -->
+        <!-- {% for category in post.categories.all %}
+            <a href="{% url 'blogs:category_post_list' category_name=category.slug %}" class="btn-more" style="float: center">
+                <button style="border-radius: 7px;">{{ category.name }} 목록</button>
+            </a>
+        {% endfor %} -->
     </div>
 
         
