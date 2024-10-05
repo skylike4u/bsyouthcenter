@@ -16,8 +16,50 @@
     <form action="{% url 'blogs:create' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <!-- {{form}} -->
+      
+      
       {% bootstrap_form form %}  
-      <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3" value="POST" />
+
+
+      <!-- 템플릿에서 양식 필드를 명시적으로 렌더링하는 경우(참고)
+      #Title Field
+      <div class="form-group">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+      </div>
+
+      #Categories (Checkboxes)
+      <div class="form-group">
+          {{ form.categories.label_tag }}
+          {{ form.categories }}
+      </div>
+
+      #Excerpt Field
+      <div class="form-group">
+          {{ form.excerpt.label_tag }}
+          {{ form.excerpt }}
+      </div>
+
+      #Content Field
+      <div class="form-group">
+          {{ form.content.label_tag }}
+          {{ form.content }}
+      </div>
+
+      #File Upload
+      <div class="form-group">
+          {{ form.file_upload.label_tag }}
+          {{ form.file_upload }}
+      </div>
+
+      #Featured Image
+      <div class="form-group">
+          {{ form.featured_image.label_tag }}
+          {{ form.featured_image }}
+      </div> -->
+
+
+      <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3" value="글 올리기(posting)" />
     </form>
   </div>
 </div>  

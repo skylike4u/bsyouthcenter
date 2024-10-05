@@ -82,7 +82,7 @@
         <!-- 첨부파일이 있는 경우 다운로드 버튼 만들기 -->
         <div class="download-btn" style="text-align: left;">
             {% if post.file_upload %}
-            <span> &middot; Download: </span>
+            <span> <span style="color:#0068b7; font-weight: bold;">|</span> Download : &nbsp;</span>
             <a href="{{post.file_upload.url}}" class="btn btn-outline-success" role="button">
                 {% if post.get_file_ext == 'csv' %}
                 <i class="material-symbols-outlined">csv</i>
