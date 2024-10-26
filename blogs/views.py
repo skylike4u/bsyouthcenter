@@ -65,6 +65,12 @@ class PostDetailView(DetailView):
     context_object_namae = "post"
     template_name = "blogs/detail.html"
 
+    # 이 get_context_data 부분은 검증안된 메소드임(쓰임이 있을 지 모르겠음)
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context["category_name"] = self.kwargs.get("category_name")
+        return context
+
 
 # 게시글 작성할때는 로그인이 되어 있어야 함(데코레이터 사용)
 @method_decorator(login_required, "get")

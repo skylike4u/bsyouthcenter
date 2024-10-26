@@ -36,7 +36,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     content = models.TextField()
     excerpt = models.TextField(max_length=300, blank=True)
