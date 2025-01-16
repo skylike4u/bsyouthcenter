@@ -7,6 +7,7 @@ from .views import (
     PostDeleteView,
     PostUpdateView,
 )
+from blogs import views
 
 app_name = "blogs"
 

@@ -12,6 +12,8 @@ from django.views.generic import (
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import FormMixin
 
+from blogs.decorators import post_ownership_required
+
 from .models import Post
 from .forms import PostCreationForm
 
@@ -99,9 +101,19 @@ class PostCreateView(CreateView):
         return reverse("blogs:detail", kwargs={"pk": self.object.pk})
 
 
-class PostDeleteView(DeleteView):
-    pass
-
-
+# 이 customized 메소드 데코레이션은 주인이 맞는 지 확인하는 과정(데코레이터 사용)
+@method_decorator(post_ownership_required, "get")
+@method_decorator(post_ownership_required, "post")
 class PostUpdateView(UpdateView):
+    model = Post
+    context_object_name = "target_post"
+    form_class = PostCreationForm
+    template_name = "blogs/update.html"
+
+    # get_success_url 메소드로 오버라이딩해줄텐데, 게시글이 완성이 되면 게시글 detailView로 연결을 시켜줌
+    def get_success_url(self):
+        return reverse("blogs:detail", kwargs={"pk": self.object.pk})
+
+
+class PostDeleteView(DeleteView):
     pass

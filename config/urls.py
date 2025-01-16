@@ -15,6 +15,7 @@ urlpatterns = [
     path("blogs/", include("blogs.urls")),
     path("likes/", include("likes.urls")),
     path("search/", include("search.urls")),
+    path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
 
